@@ -1,2 +1,9 @@
-su
-dkpg -i package.deb
+echo ThanOS Package Manager
+if [[ $EUID -ne 0 ]]; then
+   echo "Please run this as root." 
+   exit 1
+fi
+echo Installing Package...
+dpkg -i Thanos.deb
+echo Restarting SpringBoard via usual Killall due to if we use sbreload it will only reload on Chimera
+killall SpringBoard
