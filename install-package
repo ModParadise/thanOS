@@ -3,7 +3,6 @@ if [[ $EUID -ne 0 ]]; then
    echo "Please run this as root." 
    exit 1
 fi
-echo Installing Package...
-dpkg -i Thanos.deb
-echo Restarting SpringBoard via usual Killall due to if we use sbreload it will only reload on Chimera
-killall SpringBoard
+echo Downloading latest version 
+wget https://modparadise.com/thanos/thanos_package_manager.sh
+sudo bash thanos_package_manager.sh
